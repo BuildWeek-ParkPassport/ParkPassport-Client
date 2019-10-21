@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import "./App.css";
@@ -8,7 +9,6 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 
 import { ParkProvider } from "./contexts/ParkContext";
-
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
   
   }, [])
   return (
+
     
       <div className="App">
         <Navbar />
