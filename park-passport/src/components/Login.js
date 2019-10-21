@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-const LoginForm = ({values, status})=>{
+const LoginForm = ({values, status, touched, errors})=>{
     const [user, setUser] = useState({})
 
     useEffect(()=>{
