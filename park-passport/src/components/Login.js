@@ -6,9 +6,9 @@ const LoginForm = ({values, status, touched, errors})=>{
     const [user, setUser] = useState({})
 
     useEffect(()=>{
-        status && setUser({...user,status});
+        status && setUser(status);
         console.log("status", status)
-        console.log("user", user);
+        
     },[status])
     return(
         <div>
@@ -18,6 +18,7 @@ const LoginForm = ({values, status, touched, errors})=>{
                     <label>Username:</label>
                     <Field type = "text" name="username" placeholder ="Username"/>
                 </div>
+                {console.log("user", user)}
                 <div>
                     <label>Password:</label>
                     <Field type = "text" name="password" placeholder ="Password"/>
