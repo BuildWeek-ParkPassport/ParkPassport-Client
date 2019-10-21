@@ -5,9 +5,9 @@ import * as Yup from "yup";
 
 const SignUpForm = ({ values, touched, errors, status }) => {
     const [user, setUser] = useState([])
-    // useEffect(() => {
-    //     status && setAnimals(animals => [...animals, status])
-    // },[status])
+    useEffect(() => {
+        status && setUser(user => [...user, status])
+    },[status])
     
     return (
         <div className="SignUp">
@@ -20,19 +20,15 @@ const SignUpForm = ({ values, touched, errors, status }) => {
             {touched.password && errors.password && (
             <p className="error">{errors.password}</p>
             )}
-            <Field type="text" name="email" placeholder="Email" />
-            {touched.email && errors.email && (
-            <p className="error">{errors.email}</p>
-            )}
             <button type="submit">Submit!</button>
         </Form>
-        {animals.map(user => (
+        {/* {user.map(user => (
             <ul key={user.id}>
             <li>Username: {user.userName}</li>
             <li>Password: {user.password}</li>
             <li>Email: {user.email}</li>
             </ul>
-        ))}
+        ))} */}
         </div>
     );
     };
@@ -41,19 +37,17 @@ const SignUpForm = ({ values, touched, errors, status }) => {
         return {
         userName: userName || "",
         password: password || "",
-        email: email || " ",
         };
     },
     validationSchema: Yup.object().shape({
         userName: Yup.string().required(),
-        password: Yup.string.required(),
-        email: Yup.string().required(),
+        password: Yup.string.required()
     }),
-    handleSubmit(values, {setStatus}) { 
-        axios.post('https://reqres.in/api/users/', values) 
-            .then(res => { setStatus(res.data); }) 
-            .catch(err => console.log(err.response));
-        }
+    // handleSubmit(values, {setStatus}) { 
+    //     axios.post('https://reqres.in/api/users/', values) 
+    //         .then(res => { setStatus(res.data); }) 
+    //         .catch(err => console.log(err.response));
+    //     }
     })(SignUpForm);
     export default FormikSignUpForm;
-    console.log("This is the HOC", FormikAnimalForm)
+    
