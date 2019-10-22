@@ -41,7 +41,7 @@ const SignUpForm = ({ values, touched, errors, status }) => {
     },
     validationSchema: Yup.object().shape({
         userName: Yup.string().required(),
-        password: Yup.string.required()
+        password: Yup.string().required()
     }),
     // handleSubmit(values, {setStatus}) { 
     //     axios.post('https://reqres.in/api/users/', values) 

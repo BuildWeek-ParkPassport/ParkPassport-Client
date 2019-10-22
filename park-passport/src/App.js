@@ -1,13 +1,15 @@
 
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Route,  Redirect, Switch } from "react-router-dom";
 import "./App.css";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import axiosWithAuth from "./utils/axiosWithAuth";
 
+import { ParkContext } from './contexts/ParkContext'
 import { ParkProvider } from "./contexts/ParkContext";
 
 
@@ -15,17 +17,22 @@ function App() {
   const { setParks } = useContext(ParkContext);
 
   useEffect(() => {
-    setParks({
-      // make api call
-      // setParks
-    })
-  
+      axiosWithAuth()
+      .get("/parks")
+      .then(res => {
+        console.log(res.data)
+        setParks(res.data)
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
   }, [])
   return (
 
-    
+   
       <div className="App">
         <Navbar />
+      
         <Route
           exact
           path="/"
@@ -36,12 +43,13 @@ function App() {
           )}
         />
         
-        <Route path="/signup/" render={ <Signup /> } />
-        <Route path="/login/" render={<Login  />} />
+        
+        <Route path="/signup/" render={() => <Signup /> } />
+        <Route path="/login/" render={() => <Login  /> } />
 
-
+     
       </div>
-    
+   
   );
 }
 
