@@ -1,53 +1,50 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+import React,{useState, useEffect} from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { Link } from 'react-router-dom';
 
-const SignUpForm = ({ values, touched, errors, status }) => {
-    const [user, setUser] = useState([])
-    useEffect(() => {
-        status && setUser(user => [...user, status])
-    },[status])
+
+const Signup = ({ history }) => {
+    // const { isLoggedIn } = useContext(ParkContext);
+    // const [user, setUser] = useState({});
+    const [creds, setCreds] = useState({ username: '', password: '' });
+
+
+    const handleChange = e => {
+        setCreds({ ...creds, [e.target.name]: e.target.value });
+    }
+
+    const signup = e => {
+        e.preventDefault();
+        axiosWithAuth()
+          .post('/auth/register', creds)
+          .then(res => {
+              console.log(creds);
+              localStorage.setItem('token', res.data.token); // Create signup not token
+              history.push('/login');
+          })
+          .catch(err => console.error(err));
+    };
     
     return (
-        <div className="SignUp">
-        <Form>
-            <Field type="text" name="userName" placeholder="Username" />
-            {touched.userName && errors.userName && (
-            <p className="error">{errors.userName}</p>
-            )}
-            <Field type="text" name="password" placeholder="Password" />
-            {touched.password && errors.password && (
-            <p className="error">{errors.password}</p>
-            )}
-            <button type="submit">Submit!</button>
-        </Form>
-        {/* {user.map(user => (
-            <ul key={user.id}>
-            <li>Username: {user.userName}</li>
-            <li>Password: {user.password}</li>
-            <li>Email: {user.email}</li>
-            </ul>
-        ))} */}
+        <div>
+            <form onSubmit={signup}>
+                <input
+                  type='text'
+                  name='username'
+                  value={creds.username}
+                  onChange={handleChange}
+                  / >
+                <input
+                  type='password'
+                  name='password'
+                  value={creds.password}
+                  onChange={handleChange}
+                  / >
+                <button type='submit'>Sign Up</button>
+            </form>
         </div>
     );
-    };
-    const FormikSignUpForm = withFormik({
-    mapPropsToValues({ userName, password, email }) {
-        return {
-        userName: userName || "",
-        password: password || "",
-        };
-    },
-    validationSchema: Yup.object().shape({
-        userName: Yup.string().required(),
-        password: Yup.string().required()
-    }),
-    // handleSubmit(values, {setStatus}) { 
-    //     axios.post('https://reqres.in/api/users/', values) 
-    //         .then(res => { setStatus(res.data); }) 
-    //         .catch(err => console.log(err.response));
-    //     }
-    })(SignUpForm);
-    export default FormikSignUpForm;
-    
+};
+
+export default Signup;
+

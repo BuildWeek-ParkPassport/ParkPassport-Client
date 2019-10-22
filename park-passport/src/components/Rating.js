@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ParkContext } from '../contexts/ParkContext';
 import { directive } from "@babel/types";
 
 const Rating = (props) => {
     const { isLoggedIn } = useContext(ParkContext);
 
-    getRating = () => {
+   const getRating = () => {
         const stars = [];
         for(let i = 0; i < 5; i++){
             if(props.rating > i){
@@ -24,3 +24,5 @@ const Rating = (props) => {
         </div>
     )
 }
+
+export default Rating;

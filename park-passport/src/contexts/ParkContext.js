@@ -12,3 +12,5 @@ export const ParkProvider = props => {
         </ParkContext.Provider>
     )
 }
+
+export default ParkContext;

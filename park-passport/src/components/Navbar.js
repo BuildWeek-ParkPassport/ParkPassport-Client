@@ -18,7 +18,7 @@ const StyledNavBar = styled.div`
             
             a {
                 text-decoration: none;
-                color: black;
+                color: green;
             }
             
         }
@@ -30,7 +30,7 @@ const NavBar = (props) => {
         <StyledNavBar>
             <nav>
                 <div className="link-button">
-                    <a href="">Home</a>
+                    <Link to="/login">Home</Link>
                 </div>
 
                 <div className="link-button">
@@ -42,12 +42,9 @@ const NavBar = (props) => {
                 </div>
 
                 <div className="link-button">
-                    <a href="">Sign Up</a>
+                    <a href="/signup/">Sign Up</a>
                 </div>
 
-                {props.userType === 'guest' ? <div className="link-button"> <Link to="/guest-page/">Continue As Guest</Link></div>
-                    : props.userType === 'user' ? <div className="link-button"> <Link to="/user-page/">Parks</Link> </div> : null}
-         
             </nav>
 
         </StyledNavBar>
