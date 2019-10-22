@@ -11,19 +11,18 @@ const LoginForm = ({values, status, touched, errors})=>{
         
     },[status])
     return(
-        <div>
-            <h1>Login Form</h1>
-            <Form>
-                <div>
+        <div className="FormHold">
+            <h1 className="FormTitle">Login Form</h1>
+            <Form className ="Formy">
+                <div className ="InputHold">
                     <label>Username:</label>
                     <Field type = "text" name="username" placeholder ="Username"/>
                 </div>
-                {console.log("user", user)}
-                <div>
+                <div className="InputHold">
                     <label>Password:</label>
                     <Field type = "text" name="password" placeholder ="Password"/>
                 </div>
-                <button type="submit">Login</button>
+                <button className="submitBtn" type="submit">Login</button>
             </Form>
         </div>
     );

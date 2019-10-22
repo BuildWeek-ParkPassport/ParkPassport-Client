@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -20,3 +21,43 @@
 .App-link {
   color: #09d3ac;
 }
+
+.FormHold{
+  font-size: 1.5rem;
+}
+
+.FormTitle{
+  color: #504e50;
+  background: #03DAC5;
+  padding: 1% 0;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.InputHold{
+  margin: 4% auto;
+}
+
+.submitBtn{
+  color: #504e50;
+  background: none;
+  margin: 3% 0;
+  padding: .5% 2%;
+  border-radius: 5px;
+  border: 2px solid #03DAC5;
+  font-size: 1.5rem;
+}
+
+.submitBtn:hover{
+  background: #03DAC5;
+}
+
+.Formy{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+}
+
+
