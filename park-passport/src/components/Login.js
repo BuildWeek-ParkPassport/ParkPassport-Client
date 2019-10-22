@@ -1,55 +1,54 @@
 import React,{useState, useEffect} from "react";
-import { Form, Field, withFormik } from "formik";
-import * as Yup from "yup";
+// import { Formik, Form, Field, withFormik } from "formik";
+// import * as Yup from "yup";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { Link } from 'react-router-dom';
 
-const LoginForm = ({values, status, touched, errors})=>{
-    const [user, setUser] = useState({})
 
-    useEffect(()=>{
-        status && setUser(status);
-        console.log("status", status)
-        
-    },[status])
-    return(
+const Login = ({ history }) => {
+    // const { isLoggedIn } = useContext(ParkContext);
+    // const [user, setUser] = useState({});
+    const [creds, setCreds] = useState({ username: '', password: '' });
+
+
+    const handleChange = e => {
+        setCreds({ ...creds, [e.target.name]: e.target.value });
+    }
+
+    const login = e => {
+        e.preventDefault();
+        axiosWithAuth()
+          .post('/auth/login', creds)
+          .then(res => {
+              console.log(creds);
+              localStorage.setItem('token', res.data.token);
+              history.push('/parklist');
+          })
+          .catch(err => console.error(err));
+    };
+    
+    return (
         <div>
-            <h1>Login Form</h1>
-            <Form>
-                <div>
-                    <label>Username:</label>
-                    <Field type = "text" name="username" placeholder ="Username"/>
-                </div>
-                {console.log("user", user)}
-                <div>
-                    <label>Password:</label>
-                    <Field type = "text" name="password" placeholder ="Password"/>
-                </div>
-                <button type="submit">Login</button>
-            </Form>
+            <form onSubmit={login}>
+                <input
+                  type='text'
+                  name='username'
+                  value={creds.username}
+                  onChange={handleChange}
+                  / >
+                <input
+                  type='password'
+                  name='password'
+                  value={creds.password}
+                  onChange={handleChange}
+                  / >
+                <button type='submit'>Log In</button>
+                <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>
+                <button type='submit'>Sign Up</button>
+            </form>
         </div>
     );
-}
-const FLogin = withFormik({
+};
 
-mapPropsToValues({username, password}){
+export default Login;
 
-    return{
-        username: username || "",
-        password: password || ""
-    };
-},
-
-validationSchema: Yup.object().shape({
-    username: Yup.string().required("please enter a username"),
-    password: Yup.string().required("Please enter a password")
-}),
-
-handleSubmit(values, {setStatus}){
-    setStatus(values);
-    console.log("values", values);
-}
-
-
-   
-})(LoginForm)
-
-export default FLogin;

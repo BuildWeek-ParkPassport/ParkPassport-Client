@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Rating from "./Rating";
+import Comment from './Comment';
+import ParkContext from '../contexts/ParkContext';
+import AddPark from './AddPark';
 
 const Park = ({ name, location, description, rating }) => {
     const { isLoggedIn } = useContext(ParkContext);
@@ -14,3 +17,5 @@ const Park = ({ name, location, description, rating }) => {
         </div>
     )
 }
+
+export default Park;

@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import Park from './Park';
+
 import { ParkContext } from '../contexts/ParkContext';
+import Fuse from 'fuse.js';
 
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
@@ -10,13 +12,13 @@ const ParkList = () => {
 
 
 
-      getParks = () => {
+    const getParks = () => {
           let parksToSearch = [...parks];
           if (dogs) {
               parksToSearch = parksToSearch.filter(park => park.hasDogs);
 
           }
-          var options = {
+          let options = {
             shouldSort: true,
             threshold: 0.6,
             location: 0,
@@ -29,10 +31,10 @@ const ParkList = () => {
               "description"
             ]
           };
-           // "list" is the item array
+    
           let result = parksToSearch;
           if(searchTerm !== ''){
-            var fuse = new Fuse(parksToSearch, options);
+            let fuse = new Fuse(parksToSearch, options);
             result = fuse.search(searchTerm);
         
           }
@@ -55,5 +57,6 @@ const ParkList = () => {
         </div>
     );
 };
+
 
 export default ParkList;
