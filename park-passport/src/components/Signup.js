@@ -1,11 +1,7 @@
 import React,{useState, useEffect} from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { Link } from 'react-router-dom';
-
 
 const Signup = ({ history }) => {
-    // const { isLoggedIn } = useContext(ParkContext);
-    // const [user, setUser] = useState({});
     const [creds, setCreds] = useState({ username: '', password: '' });
 
 

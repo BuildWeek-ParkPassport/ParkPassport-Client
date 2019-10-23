@@ -1,20 +1,24 @@
 import React, { useContext, useState } from "react";
-import { ParkContext } from '../contexts/ParkContext';
-import { format } from "url";
+// import { ParkContext } from '../contexts/ParkContext';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const Comment = () => {
-    const { isLoggedIn, setParks } = useContext(ParkContext);
-    const [comment, setComment] = useState('')
+const Comment = (props) => {
+    // const { isLoggedIn, setParks } = useContext(ParkContext);
+  const [review, setReview] = useState({ rating: null, comment: '', id: props.parkId });
+
+  const handleChange = e => {
+    setReview({ ...review, [e.target.name]: e.target.value });
+};
 
    const onSubmit = (e) => {
-       e.preventDefault();
-    axiosWithAuth()
-    .post('/auth/login', comment)
-    .then(res => {
-        console.log(comment);
-        // setParks()
-        // history.push('/parklist');
+       console.log(review);
+    e.preventDefault();
+      axiosWithAuth()
+       .post('/parks/ratings', review)
+       .then(res => {
+        console.log("review", res);
+        setReview({ review });
+        props.history.push('/parklist')
     })
     .catch(err => console.error(err));
 };
@@ -23,8 +27,21 @@ const Comment = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <input value={comment}></input>
-            <button>Submit Comment</button>
+            <label>Comment</label>
+            <input 
+              type='text'
+              name='comment'
+              onChange={handleChange}
+              value={review.comment}
+              />
+              <label>Rating</label>
+              <input 
+              type='number'
+              name='rating'
+              onChange={handleChange}
+              value={review.rating}
+              />
+            <button>Submit Review</button>
         </form>
     )
 };
