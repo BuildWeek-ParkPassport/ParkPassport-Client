@@ -1,10 +1,7 @@
 import React,{useState, useEffect, useContext } from "react";
-
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
-
 import ParkContext from '../contexts/ParkContext';
-
 
 const Login = ({ history }) => {
     const { setIsLoggedIn } = useContext(ParkContext);

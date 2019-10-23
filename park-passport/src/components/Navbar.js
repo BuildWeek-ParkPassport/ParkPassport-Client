@@ -34,15 +34,15 @@ const NavBar = (props) => {
                 </div>
 
                 <div className="link-button">
-                    <a href="">About</a>
+                    <a href="">Sign Up</a>
                 </div>
 
                 <div className="link-button">
-                    <a href="">Contact</a>
+                    <a href="">Marketing</a>
                 </div>
 
                 <div className="link-button">
-                    <a href="/signup/">Sign Up</a>
+                    <a href="/signup/">About</a>
                 </div>
 
             </nav>
