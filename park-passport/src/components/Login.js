@@ -1,12 +1,13 @@
-import React,{useState, useEffect} from "react";
-// import { Formik, Form, Field, withFormik } from "formik";
-// import * as Yup from "yup";
+import React,{useState, useEffect, useContext } from "react";
+
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
 
+import ParkContext from '../contexts/ParkContext';
+
 
 const Login = ({ history }) => {
-    // const { isLoggedIn } = useContext(ParkContext);
+    const { setIsLoggedIn } = useContext(ParkContext);
     // const [user, setUser] = useState({});
     const [creds, setCreds] = useState({ username: '', password: '' });
 
@@ -22,6 +23,7 @@ const Login = ({ history }) => {
           .then(res => {
               console.log(creds);
               localStorage.setItem('token', res.data.token);
+              setIsLoggedIn(true);
               history.push('/parklist');
           })
           .catch(err => console.error(err));
