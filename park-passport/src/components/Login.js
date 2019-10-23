@@ -2,7 +2,7 @@ import React,{useState, useEffect, useContext } from "react";
 
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
-import {FormHold,FromTitle,Formy,InputHold,TextInput} from "./styled";
+import {FormHold,FromTitle,Formy,InputHold,TextInput,SubmitBtn} from "./styled";
 
 import ParkContext from '../contexts/ParkContext';
 
@@ -53,7 +53,7 @@ const Login = ({ history }) => {
                         onChange={handleChange}
                         / >
                     </InputHold>
-                    <button className="submitBtn" type='submit'>Log In</button>
+                    <SubmitBtn type='submit'>Log In</SubmitBtn>
                 </Formy>
             </FormHold>
             <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>

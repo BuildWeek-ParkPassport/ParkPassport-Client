@@ -51,3 +51,24 @@ export const TextInput = styled.input`
 width: 90%;
   margin: 0 auto;
 `;
+
+export const SubmitBtn = styled.button`
+color: #494949;
+  background: #ffffff;
+  text-decoration: none;
+  margin: 3% 0;
+  padding: .5% 2%;
+  border: 2px solid #494949;
+  font-size: 1.5rem;
+  margin: 3% auto;
+  width: 50%;
+  transition: all 0.4s ease 0s;
+
+  &:hover{
+    color: #ffffff;
+    background: #f6b93b;
+    border-color: #f6b93b;
+    transition: all 0.4s ease 0s;
+  }
+  
+`;
