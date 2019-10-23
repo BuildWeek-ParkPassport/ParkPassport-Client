@@ -2,6 +2,7 @@ import React,{useState, useEffect, useContext } from "react";
 
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
+import {FormHold,FromTitle,Formy,InputHold,TextInput} from "./styled";
 
 import ParkContext from '../contexts/ParkContext';
 
@@ -31,23 +32,32 @@ const Login = ({ history }) => {
     
     return (
         <div>
-            <form onSubmit={login}>
-                <input
-                  type='text'
-                  name='username'
-                  value={creds.username}
-                  onChange={handleChange}
-                  / >
-                <input
-                  type='password'
-                  name='password'
-                  value={creds.password}
-                  onChange={handleChange}
-                  / >
-                <button type='submit'>Log In</button>
-                <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>
-                <button type='submit'>Sign Up</button>
-            </form>
+            <FormHold>
+                <FromTitle>Login Form</FromTitle>
+                <Formy className="Formy" onSubmit={login}>
+                    <InputHold className="InputHold">
+                        <label>Username:</label>
+                        <TextInput
+                        type='text'
+                        name='username'
+                        value={creds.username}
+                        onChange={handleChange}
+                        / >
+                    </InputHold>
+                    <InputHold className="InputHold">
+                        <label>Password:</label>
+                        <TextInput
+                        type='password'
+                        name='password'
+                        value={creds.password}
+                        onChange={handleChange}
+                        / >
+                    </InputHold>
+                    <button className="submitBtn" type='submit'>Log In</button>
+                </Formy>
+            </FormHold>
+            <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>
+            <button type='submit'>Sign Up</button>
         </div>
     );
 };

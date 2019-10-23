@@ -4,7 +4,7 @@ import Park from './Park';
 import AddPark from './AddPark';
 
 import { ParkContext } from '../contexts/ParkContext';
-import Fuse from 'fuse.js';
+
 
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
