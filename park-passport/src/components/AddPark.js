@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const AddPark = props => {
-    // useContext?
+   
     const [ newPark, setNewPark ] = useState({ name: '', description: '', location: '' });
 
     const handleChange = e => {
@@ -11,7 +11,7 @@ const AddPark = props => {
 
     const addPark = () => {
         axiosWithAuth()
-        .post('/parks', newPark)
+        .post('/parks', newPark) 
         .then(res => console.log(res.data))
         .catch(err => console.log(err.response));
     };
