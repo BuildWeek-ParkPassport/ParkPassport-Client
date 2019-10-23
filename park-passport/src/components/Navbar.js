@@ -18,9 +18,29 @@ import {
 
 const NavBar = (props) => {
 
+
     const [isOpen, setIsOpen] = useState(false);
     
     const toggle = () => setIsOpen(!isOpen);
+
+    return (
+        <StyledNavBar>
+            <nav>
+                <div className="link-button">
+                    <Link to="/login">Home</Link>
+                </div>
+
+                <div className="link-button">
+                    <a href="">Sign Up</a>
+                </div>
+
+                <div className="link-button">
+                    <a href="">Marketing</a>
+                </div>
+
+                <div className="link-button">
+                    <a href="/signup/">About</a>
+                </div>
 
     return (
        

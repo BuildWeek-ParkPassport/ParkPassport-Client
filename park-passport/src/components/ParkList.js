@@ -1,64 +1,30 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import Park from './Park';
 import AddPark from './AddPark';
-
+import Search from './Search';
 import { ParkContext } from '../contexts/ParkContext';
 
 
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
-    const [searchTerm, setSearchTerm] = useState('')
-    const [dogs, setDogs] = useState(false);
-
-  console.log('PARKS', parks)
-    // const getParks = () => {
-    //       let parksToSearch = [...parks];
-    //       if (dogs) {
-    //           parksToSearch = parksToSearch.filter(park => park.hasDogs);
-
-    //       }
-    //       let options = {
-    //         shouldSort: true,
-    //         threshold: 0.6,
-    //         location: 0,
-    //         distance: 100,
-    //         maxPatternLength: 32,
-    //         minMatchCharLength: 1,
-    //         keys: [
-    //           "name",
-    //           "location",
-    //           "description"
-    //         ]
-    //       };
-    
-    //       let result = parksToSearch;
-    //       if(searchTerm !== ''){
-    //         let fuse = new Fuse(parksToSearch, options);
-    //         result = fuse.search(searchTerm);
-        
-    //       }
-    //       return result;
-    //   }
-      
 
     return (
         <div className="park-list">
+            {<Search /> }
             {parks.map(park => (
                 <div>
                     <Park 
                         name={park.name} 
                         location={park.location} 
                         description={park.description} 
+                        // parkId={park.id}
                         rating={park.rating}
-                        
                     />
-                    
                 </div>
             ))}
+            {isLoggedIn && <AddPark /> }
         </div>
     );
 };
-
 
 export default ParkList;

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ParkContext } from '../contexts/ParkContext';
-import { directive } from "@babel/types";
 
 const Rating = (props) => {
     const { isLoggedIn } = useContext(ParkContext);
