@@ -3,35 +3,28 @@ import axios from "axios";
 
 import ParkContext from '../contexts/ParkContext';
 
-const Search = () => {
-    const { parks } = useContext(ParkContext);
+const Search = (props) => {
+    const { setParks } = useContext(ParkContext);
     const [query, setQuery] = useState("");
-    const [getParks, setGetParks] = useState({ parks });
+    const [searchResults, setSearchResults] = useState([]);
 
     const handleChange = e => {
+        console.log(query)
         e.preventDefault();
         setQuery(e.target.value);
-  };
+};
 
-    useEffect(() => {
-        axios
-          .get('/parks', getParks)
-          .then(res => {
-            console.log(res)
-            const searchResults = res.data.results.filter(park =>
-              park.name.toLowerCase().includes(query.toLowerCase())
-            );
-            
-            setGetParks(searchResults);
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      }, [query]);
+const handleSubmit = e => {
+      e.preventDefault();
+      const foundParks = props.parks.filter(park => park.name.toLowerCase().includes(query));
+      setSearchResults(foundParks);
+      console.log(searchResults);
+      setParks(foundParks);
+    };
 
      return (
         <div className='list'>
-          <form className="search" >
+          <form className="search" onSubmit={handleSubmit} >
          <input
            type='text'
            onChange={handleChange}
@@ -42,6 +35,7 @@ const Search = () => {
            placeholder='search by name'
            autoComplete='off'
          />
+         <button type="submit">Search</button>
       </form>
         </div>
       );  
