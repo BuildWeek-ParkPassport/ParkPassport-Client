@@ -1,6 +1,11 @@
 import React,{useState, useEffect} from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+import { Link } from 'react-router-dom';
+import {FormHold,FromTitle,Formy,InputHold,TextInput, SubmitBtn} from "./styled";
+
+
+
 const Signup = ({ history }) => {
     const [creds, setCreds] = useState({ username: '', password: '' });
 
@@ -11,6 +16,9 @@ const Signup = ({ history }) => {
 
     const signup = e => {
         e.preventDefault();
+        if(creds.username.length ===0 || creds.password.length ===0){
+            alert("Youre missing something there")
+        }
         console.log(creds);
         axiosWithAuth()
           .post('/auth/register', creds)
@@ -22,23 +30,33 @@ const Signup = ({ history }) => {
     };
     
     return (
-        <div>
-            <form onSubmit={signup}>
-                <input
-                  type='text'
-                  name='username'
-                  value={creds.username}
-                  onChange={handleChange}
-                  / >
-                <input
-                  type='password'
-                  name='password'
-                  value={creds.password}
-                  onChange={handleChange}
-                  / >
-                <button type='submit'>Sign Up</button>
-            </form>
-        </div>
+        <FormHold>
+            <FromTitle>SignUp</FromTitle>
+            <Formy onSubmit={signup}>
+                <InputHold>
+                <label>Username:</label>
+                    <TextInput
+                        type='text'
+                        name='username'
+                        placeholder='Username...'
+                        value={creds.username}
+                        onChange={handleChange}
+                    / >
+                        
+                </InputHold>
+                <InputHold>
+                <label>Password:</label>
+                    <TextInput
+                        type='password'
+                        name='password'
+                        placeholder='Password...'
+                        value={creds.password}
+                        onChange={handleChange}
+                    / >
+                </InputHold>
+                <SubmitBtn type='submit'>Sign Up</SubmitBtn>
+            </Formy>
+        </FormHold>
     );
 };
 

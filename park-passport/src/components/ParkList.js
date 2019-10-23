@@ -4,6 +4,7 @@ import AddPark from './AddPark';
 import Search from './Search';
 import { ParkContext } from '../contexts/ParkContext';
 
+
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
 

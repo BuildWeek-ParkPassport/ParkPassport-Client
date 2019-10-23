@@ -26,8 +26,9 @@
   font-size: 1.5rem;
   border: 1px solid black;
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
   height: 60%;
+  box-shadow: 0 3px 6px 10px rgba(80, 78, 80, 0.1);
 }
 
 .FormTitle{
@@ -39,29 +40,78 @@
 }
 
 .InputHold{
+  display: flex;
   margin: 4% auto;
+  width: 100%;
+  border: 1px solid blue;
 }
 
 .submitBtn{
-  color: #504e50;
-  background: none;
+  color: #494949;
+  background: #ffffff;
+  text-decoration: none;
   margin: 3% 0;
   padding: .5% 2%;
-  border-radius: 5px;
-  border: 2px solid #03DAC5;
+  border: 2px solid #494949;
   font-size: 1.5rem;
+  margin: 3% auto;
+  width: 50%;
+  transition: all 0.4s ease 0s;
 }
 
 .submitBtn:hover{
-  background: #03DAC5;
+  color: #ffffff;
+  background: #f6b93b;
+  border-color: #f6b93b;
+  transition: all 0.4s ease 0s;
 }
 
 .Formy{
   /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 85%;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+.InputHold input{
+  width: 90%;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 1200px){
+
+  .FormHold{
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 800px){
+
+  .FormHold{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px){
+
+  .FormHold{
+    width: 80%;
+  }
+  .InputHold{
+    flex-direction: column;
+  }
+}
+.yeet{
+  max-width: 40px;
+}
+
+.navbar{
+  margin: 0 3%;
+}
+
+
+
+
 
 

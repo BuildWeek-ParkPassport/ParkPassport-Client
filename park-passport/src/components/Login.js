@@ -1,6 +1,10 @@
 import React,{useState, useEffect, useContext } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
+
+import {FormHold,FromTitle,Formy,InputHold,TextInput,SubmitBtn} from "./styled";
+
+
 import ParkContext from '../contexts/ParkContext';
 
 const Login = ({ history }) => {
@@ -15,6 +19,9 @@ const Login = ({ history }) => {
 
     const login = e => {
         e.preventDefault();
+        if(creds.username.length ===0 || creds.password.length ===0){
+            alert("Youre missing something there")
+        }
         axiosWithAuth()
           .post('/auth/login', creds)
           .then(res => {
@@ -28,23 +35,34 @@ const Login = ({ history }) => {
     
     return (
         <div>
-            <form onSubmit={login}>
-                <input
-                  type='text'
-                  name='username'
-                  value={creds.username}
-                  onChange={handleChange}
-                  / >
-                <input
-                  type='password'
-                  name='password'
-                  value={creds.password}
-                  onChange={handleChange}
-                  / >
-                <button type='submit'>Log In</button>
-                <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>
-                <button type='submit'>Sign Up</button>
-            </form>
+            <FormHold>
+                <FromTitle>Login Form</FromTitle>
+                <Formy onSubmit={login}>
+                    <InputHold>
+                        <label>Username:</label>
+                        <TextInput
+                        type='text'
+                        name='username'
+                        placeholder="Username"
+                        value={creds.username}
+                        onChange={handleChange}
+                        / >
+                    </InputHold>
+                    <InputHold>
+                        <label>Password:</label>
+                        <TextInput
+                        type='password'
+                        name='password'
+                        placeholder="Password"
+                        value={creds.password}
+                        onChange={handleChange}
+                        / >
+                    </InputHold>
+                    <SubmitBtn type='submit'>Log In</SubmitBtn>
+                </Formy>
+            </FormHold>
+            {/* <Link to='/parklist'><SubmitBtn type='submit'>Continue As Guest</SubmitBtn></Link>
+            <SubmitBtn type='submit'>Sign Up</SubmitBtn> */}
         </div>
     );
 };
