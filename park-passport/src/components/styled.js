@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const FormHold = styled.div`
 font-size: 1.5rem;
-border: 1px solid black;
 margin: 0 auto;
 width: 40%;
 height: 60%;
@@ -33,14 +32,14 @@ display: flex;
   flex-direction: column;
   width: 85%;
   margin: 0 auto;
-  border: 1px solid red;
+
 `;
 
 export const InputHold = styled.div`
 display: flex;
   margin: 4% auto;
   width: 100%;
-  border: 1px solid blue;
+ 
 
   @media (max-width: 500px){
       flex-direction: column;

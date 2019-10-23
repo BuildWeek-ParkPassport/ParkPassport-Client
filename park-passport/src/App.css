@@ -102,6 +102,13 @@
     flex-direction: column;
   }
 }
+.yeet{
+  max-width: 40px;
+}
+
+.navbar{
+  margin: 0 3%;
+}
 
 
 
