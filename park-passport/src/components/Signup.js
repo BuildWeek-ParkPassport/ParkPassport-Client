@@ -15,11 +15,11 @@ const Signup = ({ history }) => {
 
     const signup = e => {
         e.preventDefault();
+        console.log(creds);
         axiosWithAuth()
           .post('/auth/register', creds)
           .then(res => {
-              console.log(creds);
-              localStorage.setItem('token', res.data.token); // Create signup not token
+              console.log(res.data);
               history.push('/login');
           })
           .catch(err => console.error(err));
