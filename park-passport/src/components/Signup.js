@@ -16,6 +16,9 @@ const Signup = ({ history }) => {
 
     const signup = e => {
         e.preventDefault();
+        if(creds.username.length ===0 || creds.password.length ===0){
+            alert("Youre missing something there")
+        }
         console.log(creds);
         axiosWithAuth()
           .post('/auth/register', creds)
@@ -35,16 +38,18 @@ const Signup = ({ history }) => {
                     <TextInput
                         type='text'
                         name='username'
-                        placeholder='Username..'
+                        placeholder='Username...'
                         value={creds.username}
                         onChange={handleChange}
                     / >
+                        
                 </InputHold>
                 <InputHold>
                 <label>Password:</label>
                     <TextInput
                         type='password'
                         name='password'
+                        placeholder='Password...'
                         value={creds.password}
                         onChange={handleChange}
                     / >

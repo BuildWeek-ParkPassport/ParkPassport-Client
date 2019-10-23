@@ -19,6 +19,9 @@ const Login = ({ history }) => {
 
     const login = e => {
         e.preventDefault();
+        if(creds.username.length ===0 || creds.password.length ===0){
+            alert("Youre missing something there")
+        }
         axiosWithAuth()
           .post('/auth/login', creds)
           .then(res => {
@@ -34,21 +37,23 @@ const Login = ({ history }) => {
         <div>
             <FormHold>
                 <FromTitle>Login Form</FromTitle>
-                <Formy className="Formy" onSubmit={login}>
-                    <InputHold className="InputHold">
+                <Formy onSubmit={login}>
+                    <InputHold>
                         <label>Username:</label>
                         <TextInput
                         type='text'
                         name='username'
+                        placeholder="Username"
                         value={creds.username}
                         onChange={handleChange}
                         / >
                     </InputHold>
-                    <InputHold className="InputHold">
+                    <InputHold>
                         <label>Password:</label>
                         <TextInput
                         type='password'
                         name='password'
+                        placeholder="Password"
                         value={creds.password}
                         onChange={handleChange}
                         / >
@@ -56,8 +61,8 @@ const Login = ({ history }) => {
                     <SubmitBtn type='submit'>Log In</SubmitBtn>
                 </Formy>
             </FormHold>
-            <Link to='/parklist'><button type='submit'>Continue As Guest</button></Link>
-            <button type='submit'>Sign Up</button>
+            {/* <Link to='/parklist'><SubmitBtn type='submit'>Continue As Guest</SubmitBtn></Link>
+            <SubmitBtn type='submit'>Sign Up</SubmitBtn> */}
         </div>
     );
 };

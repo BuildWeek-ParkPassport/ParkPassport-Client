@@ -6,7 +6,9 @@ font-size: 1.5rem;
 margin: 0 auto;
 width: 40%;
 height: 60%;
+margin-top: 5%;
 box-shadow: 0 3px 6px 10px rgba(80, 78, 80, 0.1);
+
 
 @media (max-width: 1200px){
     width: 55%;
