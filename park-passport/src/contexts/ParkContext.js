@@ -4,7 +4,7 @@ export const ParkContext = createContext();
 
 export const ParkProvider = props => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [parks, setParks] = useState({});
+    const [parks, setParks] = useState([]);
 
     return(
         <ParkContext.Provider value={{parks, setParks, isLoggedIn, setIsLoggedIn}}>
@@ -12,3 +12,5 @@ export const ParkProvider = props => {
         </ParkContext.Provider>
     )
 }
+
+export default ParkContext;

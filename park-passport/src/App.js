@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import axiosWithAuth from "./utils/axiosWithAuth";
-
+import ParkList from './components/ParkList';
 import { ParkContext } from './contexts/ParkContext'
 import { ParkProvider } from "./contexts/ParkContext";
 
@@ -32,25 +32,12 @@ function App() {
    
       <div className="App">
         <Navbar />
-      
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <>
-              <Redirect to="/login" />
-            </>
-          )}
-        />
-        
-        
-        <Route path="/signup/" render={() => <Signup /> } />
-        <Route path="/login/" render={() => <Login  /> } />
-
-     
+        <Route exact path="/" component={Login} />
+        <Route path="/signup/" component={Signup} />
+        <Route path="/login/" component={Login} />
+        <PrivateRoute path="/parklist/" component={ParkList} />
       </div>
-   
-  );
+   );
 }
 
 export default App;
