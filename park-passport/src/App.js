@@ -20,7 +20,7 @@ function App() {
       axiosWithAuth()
       .get("/parks")
       .then(res => {
-        console.log(res.data)
+        console.log( "response data",res.data)
         setParks(res.data)
       })
       .catch(err => {
