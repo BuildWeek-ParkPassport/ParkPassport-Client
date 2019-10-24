@@ -3,13 +3,14 @@ import Park from './Park';
 import AddPark from './AddPark';
 import Search from './Search';
 import { ParkContext } from '../contexts/ParkContext';
+import {FromHold,FromTitle, FormHold} from "./styled"
 
 
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
 
     return (
-        <div className="park-list">
+        <FormHold className="park-list">
             {<Search parks={parks}/> }
             {parks.map(park => (
                 <div>
@@ -23,7 +24,7 @@ const ParkList = () => {
                 </div>
             ))}
             {isLoggedIn && <AddPark /> }
-        </div>
+        </FormHold>
     );
 };
 
