@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-
+import {FormTitle, SearchHold, Formy, InputHold,TextInput,SubmitBtn} from "./styled"
 import ParkContext from '../contexts/ParkContext';
 
 const Search = (props) => {
@@ -23,21 +23,24 @@ const handleSubmit = e => {
     };
 
      return (
-        <div className='list'>
-          <form className="search" onSubmit={handleSubmit} >
-         <input
-           type='text'
-           onChange={handleChange}
-           value={query}
-           name='name'
-           tabIndex='0'
-           className='prompt search-name'
-           placeholder='search by name'
-           autoComplete='off'
-         />
-         <button type="submit">Search</button>
-      </form>
-        </div>
+        <SearchHold className='list'>
+          <FormTitle>Search</FormTitle>
+          <Formy className="search" onSubmit={handleSubmit} >
+          <InputHold>
+          <TextInput
+            type='text'
+            onChange={handleChange}
+            value={query}
+            name='name'
+            tabIndex='0'
+            className='prompt search-name'
+            placeholder='search by name'
+            autoComplete='off'
+          />
+         </InputHold>
+         <SubmitBtn type="submit">Search</SubmitBtn>
+      </Formy>
+        </SearchHold>
       );  
 };
 
