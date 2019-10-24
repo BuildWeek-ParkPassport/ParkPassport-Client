@@ -1,18 +1,36 @@
 import React, { useContext } from 'react';
-import Comment from './Comment';
 import ParkContext from '../contexts/ParkContext';
 
-const Park = ({ name, location, description, rating, parkId }) => {
+import { Link } from 'react-router-dom';
+
+import styled from "styled-components";
+import {FormTitle} from "./styled";
+
+
+const ParkDiv = styled.div`
+    width: 25%;
+    margin: 2% 1%;
+    border: 1px solid black;
+`
+
+
+
+const Park = ({ name, location, description, rating, parkId, park }) => {
     const { isLoggedIn } = useContext(ParkContext);
 
     return (
-        <div>
-            <h3>{name}</h3>
+        <ParkDiv>
+            <FormTitle>{name}</FormTitle>
             <h4>{location}</h4>
-            <p>{parkId}</p>
+
+            {/* <p>{parkId}</p> */}
             <p>{description}</p>
-            {isLoggedIn && <Comment parkId={parkId}/> }
-        </div>
+        
+
+      <p>{description}</p>
+            
+        </ParkDiv>
+
     )
 }
 
