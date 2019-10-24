@@ -20,15 +20,13 @@ const Park = ({ name, location, description, rating, parkId, park }) => {
 
     return (
         <ParkDiv>
-            <FormTitle>{name}</FormTitle>
-            <h4>{location}</h4>
+            <Link to={`/review/${parkId}`}>
+                <FormTitle>{name}</FormTitle>
+                <h4>{location}</h4>
 
-            {/* <p>{parkId}</p> */}
-            <p>{description}</p>
-        
-
-      <p>{description}</p>
-            
+                {/* <p>{parkId}</p> */}
+                <p>{description}</p>
+            </Link>
         </ParkDiv>
 
     )

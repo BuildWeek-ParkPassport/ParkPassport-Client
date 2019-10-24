@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import {FormTitle, SearchHold, Formy, InputHold,TextInput,SubmitBtn} from "./styled"
 import ParkContext from '../contexts/ParkContext';
-import {FromHold, FormTitle, Formy, InputHold,TextInput,SubmitBtn} from "./styled";
+
 
 const Search = (props) => {
     const { setParks } = useContext(ParkContext);
