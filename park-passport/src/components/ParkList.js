@@ -10,7 +10,7 @@ const ParkList = () => {
 
     return (
         <div className="park-list">
-            {<Search /> }
+            {<Search parks={parks}/> }
             {parks.map(park => (
                 <div>
                     <Park 
