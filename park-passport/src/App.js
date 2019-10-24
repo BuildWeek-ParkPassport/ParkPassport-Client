@@ -10,7 +10,7 @@ import Login from "./components/Login";
 import axiosWithAuth from "./utils/axiosWithAuth";
 import ParkList from './components/ParkList';
 import { ParkContext } from './contexts/ParkContext'
-import { ParkProvider } from "./contexts/ParkContext";
+import ParkReview from "./components/ParkReview";
 
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/signup/" component={Signup} />
         <Route path="/login/" component={Login} />
+        <Route path="/review/:id" component={ParkReview} />
         <PrivateRoute path="/parklist/" component={ParkList} />
       </div>
    );
