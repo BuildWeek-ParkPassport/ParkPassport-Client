@@ -21,7 +21,27 @@ box-shadow: 0 3px 6px 10px rgba(80, 78, 80, 0.1);
 }
 `;
 
-export const FromTitle = styled.h1`
+export const SearchHold = styled.div`
+font-size: 1.5rem;
+margin: 0 auto;
+width: 35%;
+height: 60%;
+margin-top: 2%;
+box-shadow: 0 3px 6px 10px rgba(80, 78, 80, 0.1);
+
+
+@media (max-width: 1200px){
+    width: 55%;
+}
+@media (max-width: 800px){
+    width: 70%;
+}
+@media (max-width: 500px){
+    width: 80%;
+}
+`;
+
+export const FormTitle = styled.h1`
 color: #504e50;
 background: #03DAC5;
 padding: 1% 0;
