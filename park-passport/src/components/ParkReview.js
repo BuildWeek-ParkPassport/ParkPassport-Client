@@ -9,7 +9,7 @@ const ParkReview = (props) => {
     const [park, setPark] = useState({});
     const [review, setReview] = useState({ park_id: props.match.params.id, rating: null, comment: '' });
 
-    console.log("park",park)
+    console.log(park)
     useEffect(() => {  
         
     const id = props.match.params.id;
@@ -28,7 +28,6 @@ const ParkReview = (props) => {
   
      const onSubmit = (e) => {
        console.log(review);
-       console.log("this ran");
        e.preventDefault();
         axiosWithAuth()
          .post('/parks/ratings/test', review) 
