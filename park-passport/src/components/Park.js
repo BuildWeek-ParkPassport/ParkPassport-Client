@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import Comment from './Comment';
 import ParkContext from '../contexts/ParkContext';
+import { Link } from 'react-router-dom';
 
-const Park = ({ name, location, description, rating, parkId }) => {
+
+const Park = ({ name, location, description, rating, parkId, park }) => {
     const { isLoggedIn } = useContext(ParkContext);
 
     return (
         <div>
             <h3>{name}</h3>
             <h4>{location}</h4>
-            <p>{parkId}</p>
+            {/* <p>{parkId}</p> */}
             <p>{description}</p>
-            {isLoggedIn && <Comment parkId={parkId}/> }
         </div>
     )
 }
