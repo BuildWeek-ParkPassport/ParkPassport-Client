@@ -21,7 +21,7 @@ const CommentandReview = (props) => {
                 onChange={props.handleChange}
                 Value={props.reviewRating}
                 />
-            <button>Submit Review</button>
+            <button type="submit">Submit Review</button>
         </form>
         </div>
     )

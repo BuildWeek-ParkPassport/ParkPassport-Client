@@ -3,6 +3,7 @@ import axios from "axios";
 import {FormTitle, SearchHold, Formy, InputHold,TextInput,SubmitBtn} from "./styled"
 import ParkContext from '../contexts/ParkContext';
 
+
 const Search = (props) => {
     const { setParks } = useContext(ParkContext);
     const [query, setQuery] = useState("");
