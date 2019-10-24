@@ -17,7 +17,7 @@ const ParkList = () => {
                         name={park.name} 
                         location={park.location} 
                         description={park.description} 
-                        // parkId={park.id}
+                        parkId={park.id}
                         rating={park.rating}
                     />
                 </div>
