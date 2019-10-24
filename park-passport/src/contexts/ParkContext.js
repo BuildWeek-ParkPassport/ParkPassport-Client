@@ -3,7 +3,7 @@ import React, { useState, createContext } from 'react';
 export const ParkContext = createContext();
 
 export const ParkProvider = props => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token')? true: false);
     const [parks, setParks] = useState([]);  // useState changed from {} to []
 
     return(
