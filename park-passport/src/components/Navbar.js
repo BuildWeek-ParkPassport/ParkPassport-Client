@@ -24,25 +24,6 @@ const NavBar = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <StyledNavBar>
-            <nav>
-                <div className="link-button">
-                    <Link to="/login">Home</Link>
-                </div>
-
-                <div className="link-button">
-                    <a href="">Sign Up</a>
-                </div>
-
-                <div className="link-button">
-                    <a href="">Marketing</a>
-                </div>
-
-                <div className="link-button">
-                    <a href="/signup/">About</a>
-                </div>
-
-    return (
        
     <div>
         <Navbar color="light" light expand="md">
@@ -56,30 +37,21 @@ const NavBar = (props) => {
             <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
                 <NavItem>
+                    <NavLink href='https://buildweek-parkpassport.github.io/ParkPassport-Landing-page/public/index.html' >Home</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink href='https://buildweek-parkpassport.github.io/ParkPassport-Landing-page/public/about.html' >About</NavLink>
+                </NavItem>
+                <NavItem>
+                    <Link to='/login/'>
+                        <NavLink >Login</NavLink>
+                    </Link>
+                </NavItem>
+                <NavItem>
                     <Link to='/signup/'>
                         <NavLink >Signup</NavLink>
                     </Link>
                 </NavItem>
-                <NavItem>
-                <NavLink href="https://github.com/BuildWeek-ParkPassport">GitHub</NavLink>
-                </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                    Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                    <DropdownItem>
-                    Option 1
-                    </DropdownItem>
-                    <DropdownItem>
-                    Option 2
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>
-                    Reset
-                    </DropdownItem>
-                </DropdownMenu>
-                </UncontrolledDropdown>
             </Nav>
             </Collapse>
         </Navbar>
