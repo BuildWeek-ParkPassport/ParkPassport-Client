@@ -25,10 +25,10 @@ const Park = ({ name, location, description, rating, parkId, park }) => {
 
             {/* <p>{parkId}</p> */}
             <p>{description}</p>
-        </div>
+        
 
       <p>{description}</p>
-            {isLoggedIn && <Comment parkId={parkId}/> }
+            
         </ParkDiv>
 
     )

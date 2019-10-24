@@ -26,23 +26,16 @@ const ParkList = () => {
             {<Search parks={parks}/> }
             <ParksList>
             {parks.map(park => (
-
-                <div>
                     
                     <Link to={`/review/${park.id}`}>
-                      <Park 
-
+                        <Park 
                         name={park.name} 
                         location={park.location} 
                         description={park.description} 
                         parkId={park.id}
                         rating={park.rating}
-                    />
-
+                        />
                     </Link>
-                    {/* {isLoggedIn && <button onClick="/review/${park.id}">Review</button>} */}
-                </div>
-
             ))}
             </ParksList>
             {isLoggedIn && <AddPark /> }
