@@ -15,7 +15,7 @@ const ParkList = () => {
             {parks.map(park => (
                 <div>
                     
-                    <Link to={`/review/${park.id}`}>
+                    
                       <Park 
                         name={park.name} 
                         location={park.location} 
@@ -23,8 +23,8 @@ const ParkList = () => {
                         parkId={park.id}
                         rating={park.rating}
                     />
-                    </Link>
-                    {/* {isLoggedIn && <button onClick="/review/${park.id}">Review</button>} */}
+                    
+                    {isLoggedIn && <Link to={`/review/${park.id}`}>Review</Link>}
                 </div>
             ))}
             {isLoggedIn && <AddPark /> }
