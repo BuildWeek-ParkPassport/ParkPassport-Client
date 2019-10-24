@@ -5,14 +5,27 @@ import Search from './Search';
 import { ParkContext } from '../contexts/ParkContext';
 
 
+import styled from "styled-components";
+
+const ParksList = styled.div`
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin 2% auto;
+    border: 1px solid black;
+
+`
+
 const ParkList = () => {
     const { parks, isLoggedIn } = useContext(ParkContext);
 
     return (
-        <div className="park-list">
+        <section>
             {<Search parks={parks}/> }
+            <ParksList>
             {parks.map(park => (
-                <div>
+                
                     <Park 
                         name={park.name} 
                         location={park.location} 
@@ -20,10 +33,12 @@ const ParkList = () => {
                         parkId={park.id}
                         rating={park.rating}
                     />
-                </div>
+                
             ))}
+            </ParksList>
             {isLoggedIn && <AddPark /> }
-        </div>
+        
+    </section>
     );
 };
 

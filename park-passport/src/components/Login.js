@@ -2,7 +2,7 @@ import React,{useState, useEffect, useContext } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
 
-import {FormHold,FromTitle,Formy,InputHold,TextInput,SubmitBtn} from "./styled";
+import {FormHold,FormTitle,Formy,InputHold,TextInput,SubmitBtn} from "./styled";
 
 
 import ParkContext from '../contexts/ParkContext';
@@ -36,7 +36,7 @@ const Login = ({ history }) => {
     return (
         <div>
             <FormHold>
-                <FromTitle>Login Form</FromTitle>
+                <FormTitle>Login Form</FormTitle>
                 <Formy onSubmit={login}>
                     <InputHold>
                         <label>Username:</label>
