@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
-
+import { ParkContext } from '../contexts/ParkContext';
+import CommentandReview from './CommentandReview'
 
 const ParkReview = (props) => {
+  const { isLoggedIn } = useContext(ParkContext);
     const [parkReview, setParkReview] = useState([]);
     const [park, setPark] = useState({});
     const [review, setReview] = useState({ park_id: props.match.params.id, rating: null, comment: '' });
@@ -37,6 +39,8 @@ const ParkReview = (props) => {
       .catch(err => console.error(err));
   };
 
+  // useEffect()
+
     return (
         <div>
             <h1>{park.name}</h1>
@@ -47,7 +51,7 @@ const ParkReview = (props) => {
                 <p>{review.comment}</p>
                 </>
             ))}
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}>
             <label>Comment</label>
             <input 
               type='text'
@@ -61,9 +65,10 @@ const ParkReview = (props) => {
               name='rating'
               onChange={handleChange}
               value={review.rating}
-              />
-            <button>Submit Review</button>
-        </form>
+              /> */}
+            {/* <button>Submit Review</button>
+        </form> */}
+        {isLoggedIn && <CommentandReview handleChange={handleChange} onSubmit={onSubmit} reviewRating={review.rating} reviewComment={review.comment}/> }
         </div>
     )
 }
