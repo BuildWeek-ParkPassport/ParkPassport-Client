@@ -28,18 +28,18 @@ const handleSubmit = e => {
           <FormTitle>Search</FormTitle>
           <Formy className="search" onSubmit={handleSubmit} >
           <InputHold>
-          <TextInput
-            type='text'
-            onChange={handleChange}
-            value={query}
-            name='name'
-            tabIndex='0'
-            className='prompt search-name'
-            placeholder='search by name'
-            autoComplete='off'
-          />
+            <TextInput
+              type='text'
+              onChange={handleChange}
+              value={query}
+              name='name'
+              tabIndex='0'
+              className='prompt search-name'
+              placeholder='search by name'
+              autoComplete='off'
+            />
          </InputHold>
-         <SubmitBtn type="submit">Search</SubmitBtn>
+         <SubmitBtn type="submit">Submit</SubmitBtn>
       </Formy>
         </SearchHold>
       );  

@@ -4,13 +4,22 @@ import ParkContext from '../contexts/ParkContext';
 import { Link } from 'react-router-dom';
 
 import styled from "styled-components";
-import {FormTitle} from "./styled";
+import {FormTitle,FormP, FormLocation} from "./styled";
 
 
 const ParkDiv = styled.div`
     width: 25%;
     margin: 2% 1%;
-    border: 1px solid black;
+    box-shadow: 0 3px 6px 1px rgba(80, 78, 80, 0.1);
+    color: black;
+    text-decoration: none;
+    &hover{
+        color black;
+    }
+    @media (max-width: 500px){
+        width: 90%;
+        margin: 2% auto;
+    }
 `
 
 
@@ -20,12 +29,12 @@ const Park = ({ name, location, description, rating, parkId, park }) => {
 
     return (
         <ParkDiv>
-            <Link to={`/review/${parkId}`}>
+            <Link activeClassName="park-links" to={`/review/${parkId}`}>
                 <FormTitle>{name}</FormTitle>
-                <h4>{location}</h4>
+                <FormLocation>{location}</FormLocation>
 
                 {/* <p>{parkId}</p> */}
-                <p>{description}</p>
+                <FormP>{description}</FormP>
             </Link>
         </ParkDiv>
 

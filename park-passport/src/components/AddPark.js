@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import {FormTitle, SearchHold, Formy, InputHold,TextInput,SubmitBtn} from "./styled"
 // import ParkContext from '../contexts/ParkContext';
 
 
@@ -24,30 +25,41 @@ const AddPark = (props) => {
     };
 
     return (
-        <form onSubmit={addPark}>
-            <label> Name </label>
-            <input
-              type='text'
-              name='name'
-              value={newPark.name}
-              onChange={handleChange}
-              />
-            <label> Description </label>
-            <input
-              type='text'
-              name='description'
-              value={newPark.description}
-              onChange={handleChange}
-              />
-            <label> Location </label>
-            <input
-              type='text'
-              name='location'
-              value={newPark.location}
-              onChange={handleChange}
-              />
-              <button type='submit'>Add Park</button>
-        </form>
+        <SearchHold>
+            <Formy onSubmit={addPark}>
+                <InputHold>
+                    <label> Name: </label>
+                    <TextInput
+                    type='text'
+                    name='name'
+                    value={newPark.name}
+                    onChange={handleChange}
+                    placeholder="name"
+                    />
+                </InputHold>
+                <InputHold>
+                    <label> Description: </label>
+                    <TextInput
+                    type='text'
+                    name='description'
+                    value={newPark.description}
+                    onChange={handleChange}
+                    placeholder="description"
+                    />
+                </InputHold>
+                <InputHold>
+                    <label> Location: </label>
+                    <TextInput
+                    type='text'
+                    name='location'
+                    value={newPark.location}
+                    onChange={handleChange}
+                    placeholder="location"
+                    />
+                </InputHold>
+                <SubmitBtn type='submit'>Add Park</SubmitBtn>
+            </Formy>
+        </SearchHold>
     );
 };
 

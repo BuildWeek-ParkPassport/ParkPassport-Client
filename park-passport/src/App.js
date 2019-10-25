@@ -36,7 +36,7 @@ function App() {
         <Route path="/signup/" component={Signup} />
         <Route path="/login/" component={Login} />
         <Route path="/review/:id" component={ParkReview} />
-        <PrivateRoute path="/parklist/" component={ParkList} />
+        <Route path="/parklist/" component={ParkList} />
       </div>
    );
 }

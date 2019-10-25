@@ -14,8 +14,10 @@ const ParksList = styled.div`
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin 2% auto;
-    border: 1px solid black;
-
+    // border: 1px solid black;
+    @media (max-width: 500px){
+        flex-direction: column;
+    }
 `
 
 const ParkList = () => {
