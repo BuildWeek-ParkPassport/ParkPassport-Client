@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { ParkContext } from '../contexts/ParkContext';
 import CommentandReview from './CommentandReview';
+import axios from 'axios'
 import {FormTitle} from "./styled";
 import styled from "styled-components";
 
@@ -22,6 +23,7 @@ const ParkReview = (props) => {
     const id = props.match.params.id;
 
     axiosWithAuth()
+      // axios
           .get(`/parks/${id}/ratings`)
           .then(res => (setParkReview(res.data), setPark(res.data[0])))
           .catch(err => console.log(err.response));
@@ -35,6 +37,9 @@ const ParkReview = (props) => {
        console.log(review);
        console.log("this ran");
        e.preventDefault();
+       if(review.rating.length === 0 || review.comment.length === 0){
+        alert("Youre missing something there")
+       }
         axiosWithAuth()
          .post('/parks/ratings/test', review) 
          .then(res => {

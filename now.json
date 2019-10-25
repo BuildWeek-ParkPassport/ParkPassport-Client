@@ -1,0 +1,8 @@
+{
+    “version”: 2,
+    “name”: “park-passport”,
+    “builds”: [{ “src”: “park-passport/package.json”, “use”: “@now/static-build”, “config”: {“distDir”: “build”} }],
+    “routes”: [
+        { “src”: “/(.*)“, “dest”: “park-passport/$1" }
+    ]
+ }
