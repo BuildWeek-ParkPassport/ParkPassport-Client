@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import logo from '../image/logo.png'
+import logo from '../image/park-finder-logo-name.png'
 import {
     Collapse,
     Navbar,
