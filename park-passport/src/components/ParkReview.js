@@ -1,7 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { ParkContext } from '../contexts/ParkContext';
-import CommentandReview from './CommentandReview'
+import CommentandReview from './CommentandReview';
+import {FormTitle} from "./styled";
+import styled from "styled-components";
+
+const ReviewHold = styled.div`
+  width:30%;
+  margin: 0 auto;
+`;
 
 const ParkReview = (props) => {
   const { isLoggedIn } = useContext(ParkContext);
@@ -19,8 +26,6 @@ const ParkReview = (props) => {
           .then(res => (setParkReview(res.data), setPark(res.data[0])))
           .catch(err => console.log(err.response));
     }, [props.match.params.id]) 
-
-    
 
     const handleChange = e => {
       setReview({ ...review, [e.target.name]: e.target.value });
@@ -48,27 +53,13 @@ const ParkReview = (props) => {
             <h2>Reviews</h2>
             {parkReview.map(review => (
                 <>
-                <h4>{review.username} - {review.rating}</h4>
-                <p>{review.comment}</p>
+                <ReviewHold>
+                  <FormTitle>Rating: {review.rating}</FormTitle>
+                  <p>"{review.comment}"-{review.username}</p>
+                  
+                </ReviewHold>
                 </>
             ))}
-            {/* <form onSubmit={onSubmit}>
-            <label>Comment</label>
-            <input 
-              type='text'
-              name='comment'
-              onChange={handleChange}
-              value={review.comment}
-              />
-              <label>Rating</label>
-              <input 
-              type='number'
-              name='rating'
-              onChange={handleChange}
-              value={review.rating}
-              /> */}
-            {/* <button>Submit Review</button>
-        </form> */}
         {isLoggedIn && <CommentandReview handleChange={handleChange} onSubmit={onSubmit} reviewRating={review.rating} reviewComment={review.comment}/> }
         </div>
     )

@@ -61,8 +61,8 @@ const Login = ({ history }) => {
                     <SubmitBtn type='submit'>Log In</SubmitBtn>
                 </Formy>
             </FormHold>
-            {/* <Link to='/parklist'><SubmitBtn type='submit'>Continue As Guest</SubmitBtn></Link>
-            <SubmitBtn type='submit'>Sign Up</SubmitBtn> */}
+            <Link to='/parklist'><SubmitBtn type='submit'>Continue As Guest</SubmitBtn></Link>
+            {/* <SubmitBtn type='submit'>Sign Up</SubmitBtn> */}
         </div>
     );
 };
