@@ -67,13 +67,13 @@ export const Formy=styled.form`
 display: flex;
   flex-direction: column;
   width: 85%;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
 
 `;
 
 export const InputHold = styled.div`
 display: flex;
-  margin: 4% auto;
+margin: 4% auto;
   width: 100%;
  
 
@@ -85,6 +85,7 @@ display: flex;
 export const TextInput = styled.input`
   width: 90%;
   margin: 0 auto;
+  text-align: center;
   font-size: 1rem;
 `;
 

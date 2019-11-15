@@ -10,15 +10,17 @@ const Search = (props) => {
     const [searchResults, setSearchResults] = useState([]);
 
     const handleChange = e => {
-        console.log(query)
+        console.log(query);
         e.preventDefault();
         setQuery(e.target.value);
 };
 
 const handleSubmit = e => {
       e.preventDefault();
+      // console.log(props.parks);
       const foundParks = props.parks.filter(park => park.name.toLowerCase().includes(query));
-      setSearchResults(foundParks);
+      console.log(foundParks);
+      setSearchResults(searchResults);
       console.log(searchResults);
       setParks(foundParks);
     };
@@ -35,7 +37,7 @@ const handleSubmit = e => {
               name='name'
               tabIndex='0'
               className='prompt search-name'
-              placeholder='search by name'
+              placeholder='Enter your search criteria...'
               autoComplete='off'
             />
          </InputHold>

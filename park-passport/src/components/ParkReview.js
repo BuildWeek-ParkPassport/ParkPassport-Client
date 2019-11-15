@@ -3,6 +3,8 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 import { ParkContext } from '../contexts/ParkContext';
 import CommentandReview from './CommentandReview';
 import {FormTitle} from "./styled";
+import StarRatingComponent from 'react-star-rating-component';
+
 import styled from "styled-components";
 
 const ReviewHold = styled.div`
@@ -15,6 +17,8 @@ const ParkReview = (props) => {
     const [parkReview, setParkReview] = useState([]);
     const [park, setPark] = useState({});
     const [review, setReview] = useState({ park_id: props.match.params.id, rating: null, comment: '' });
+    const [stars, setStars] = useState();
+
 
     console.log("park",park)
     useEffect(() => {  
@@ -45,16 +49,30 @@ const ParkReview = (props) => {
       .catch(err => console.error(err));
   };
 
+  function onStarClick(nextValue, prevValue, name) {
+    setStars(nextValue);
+}
   // useEffect()
 
     return (
         <div>
+           
             <h1>{park.name}</h1>
             <h2>Reviews</h2>
             {parkReview.map(review => (
                 <>
                 <ReviewHold>
-                  <FormTitle>Rating: {review.rating}</FormTitle>
+                  <FormTitle>Rating: <br></br>
+                      <StarRatingComponent 
+                        name='rating'
+                        value={review.rating}
+                        starCount={5}
+                        starColor={'yellow'}
+                        emptyStarColor={'grey'}
+                        editing={true}
+                        onStarClick={onStarClick}
+                  />
+            </FormTitle>
                   <p>"{review.comment}"-{review.username}</p>
                   
                 </ReviewHold>

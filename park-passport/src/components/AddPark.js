@@ -28,33 +28,33 @@ const AddPark = (props) => {
         <SearchHold>
             <Formy onSubmit={addPark}>
                 <InputHold>
-                    <label> Name: </label>
+                    {/* <label> Name: </label> */}
                     <TextInput
                     type='text'
                     name='name'
                     value={newPark.name}
                     onChange={handleChange}
-                    placeholder="name"
+                    placeholder="What's the park called?"
                     />
                 </InputHold>
                 <InputHold>
-                    <label> Description: </label>
+                    {/* <label> Description: </label> */}
                     <TextInput
                     type='text'
                     name='description'
                     value={newPark.description}
                     onChange={handleChange}
-                    placeholder="description"
+                    placeholder="How was your experience (be brief)?"
                     />
                 </InputHold>
                 <InputHold>
-                    <label> Location: </label>
+                    {/* <label> Location: </label> */}
                     <TextInput
                     type='text'
                     name='location'
                     value={newPark.location}
                     onChange={handleChange}
-                    placeholder="location"
+                    placeholder="Where is the park located (city/state please)?"
                     />
                 </InputHold>
                 <SubmitBtn type='submit'>Add Park</SubmitBtn>
