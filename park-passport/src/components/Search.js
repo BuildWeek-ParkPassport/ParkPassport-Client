@@ -18,7 +18,7 @@ const Search = (props) => {
 const handleSubmit = e => {
       e.preventDefault();
       // console.log(props.parks);
-      const foundParks = props.parks.filter(park => park.name.toLowerCase().includes(query));
+      const foundParks = props.parks.filter(park => park.name.includes(query));
       console.log(foundParks);
       setSearchResults(searchResults);
       console.log(searchResults);
