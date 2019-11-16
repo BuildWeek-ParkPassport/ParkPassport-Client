@@ -79,6 +79,9 @@ margin: 4% auto;
 
   @media (max-width: 500px){
       flex-direction: column;
+      width: 100%;
+      margin-top: 20px;
+  }
   }
 `;
 
@@ -87,6 +90,9 @@ export const TextInput = styled.input`
   margin: 0 auto;
   text-align: center;
   font-size: 1rem;
+    @media (max-width: 500px){
+      margin-top: 10px;
+    }
 `;
 
 export const SubmitBtn = styled.button`
@@ -109,4 +115,7 @@ color: #494949;
     transition: all 0.4s ease 0s;
   }
   
+  @media (max-width: 500px){
+    margin-top: 30px;
+  }
 `;

@@ -15,6 +15,7 @@ const CommentandReview = (props) => {
                     <TextInput 
                     type='text'
                     name='comment'
+                    className='mobile-space'
                     placeholder='Did you love or hate this park?'
                     onChange={props.handleChange}
                     Value={props.reviewComment}
@@ -25,12 +26,12 @@ const CommentandReview = (props) => {
                     <TextInput 
                     type='number'
                     name='rating'
-                    placeholder='How would you rate it (on a scale from 1-5)?'
+                    placeholder='How would you rate it (from 1-5)?'
                     onChange={props.handleChange}
                     Value={props.reviewRating}
                     />
                 </InputHold>
-                <PhotoUpload />
+                {/* <PhotoUpload /> */}
             <SubmitBtn type="submit">Submit</SubmitBtn>
         </Formy>
         </FormHold>

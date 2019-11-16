@@ -21,7 +21,7 @@ const ParkDiv = styled.div`
     }
     @media (max-width: 500px){
         width: 90%;
-        margin: 2% auto;
+        margin: 2% auto 20px auto;
     }
 `
 

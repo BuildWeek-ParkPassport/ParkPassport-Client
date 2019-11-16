@@ -31,25 +31,25 @@ const Signup = ({ history }) => {
     
     return (
         <FormHold>
-            <FormTitle>SignUp</FormTitle>
+            <FormTitle>Create an Account</FormTitle>
             <Formy onSubmit={signup}>
                 <InputHold>
-                <label>Username:</label>
+                {/* <label>Username:</label> */}
                     <TextInput
                         type='text'
                         name='username'
-                        placeholder='Username...'
+                        placeholder='Enter your desired username...'
                         value={creds.username}
                         onChange={handleChange}
                     / >
                         
                 </InputHold>
                 <InputHold>
-                <label>Password:</label>
+                {/* <label>Password:</label> */}
                     <TextInput
                         type='password'
                         name='password'
-                        placeholder='Password...'
+                        placeholder='Select a unique password...'
                         value={creds.password}
                         onChange={handleChange}
                     / >

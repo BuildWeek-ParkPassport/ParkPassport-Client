@@ -36,24 +36,24 @@ const Login = ({ history }) => {
     return (
         <div>
             <FormHold>
-                <FormTitle>Login Form</FormTitle>
+                <FormTitle>Login to Your Account</FormTitle>
                 <Formy onSubmit={login}>
                     <InputHold>
-                        <label>Username:</label>
+                        {/* <label>Username:</label> */}
                         <TextInput
                         type='text'
                         name='username'
-                        placeholder="Username"
+                        placeholder="Enter your username..."
                         value={creds.username}
                         onChange={handleChange}
                         / >
                     </InputHold>
                     <InputHold>
-                        <label>Password:</label>
+                        {/* <label>Password:</label> */}
                         <TextInput
                         type='password'
                         name='password'
-                        placeholder="Password"
+                        placeholder="Enter your password..."
                         value={creds.password}
                         onChange={handleChange}
                         / >

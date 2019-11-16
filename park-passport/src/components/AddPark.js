@@ -44,7 +44,7 @@ const AddPark = (props) => {
                     name='description'
                     value={newPark.description}
                     onChange={handleChange}
-                    placeholder="How was your experience (be brief)?"
+                    placeholder="How was your experience?"
                     />
                 </InputHold>
                 <InputHold>
@@ -54,7 +54,7 @@ const AddPark = (props) => {
                     name='location'
                     value={newPark.location}
                     onChange={handleChange}
-                    placeholder="Where is the park located (city/state please)?"
+                    placeholder="Where is it located?"
                     />
                 </InputHold>
                 <SubmitBtn type='submit'>Add Park</SubmitBtn>

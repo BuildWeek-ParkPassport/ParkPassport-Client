@@ -10,6 +10,9 @@ import styled from "styled-components";
 const ReviewHold = styled.div`
   width:30%;
   margin: 0 auto;
+  @media (max-width: 500px){
+    width: 80%;
+}
 `;
 
 const ParkReview = (props) => {
@@ -62,7 +65,7 @@ const ParkReview = (props) => {
             {parkReview.map(review => (
                 <>
                 <ReviewHold>
-                  <FormTitle>Rating: <br></br>
+                  <FormTitle>
                       <StarRatingComponent 
                         name='rating'
                         value={review.rating}
