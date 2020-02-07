@@ -1,59 +1,64 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+import React,{useState, useEffect} from "react";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-const SignUpForm = ({ values, touched, errors, status }) => {
-    const [user, setUser] = useState([])
-    // useEffect(() => {
-    //     status && setAnimals(animals => [...animals, status])
-    // },[status])
+import { Link } from 'react-router-dom';
+import {FormHold,FormTitle,Formy,InputHold,TextInput, SubmitBtn} from "./styled";
+
+
+
+const Signup = ({ history }) => {
+    const [creds, setCreds] = useState({ username: '', password: '' });
+
+
+    const handleChange = e => {
+        setCreds({ ...creds, [e.target.name]: e.target.value });
+    }
+
+    const signup = e => {
+        e.preventDefault();
+        if(creds.username.length ===0 || creds.password.length ===0){
+            alert("Youre missing something there")
+        }
+        console.log(creds);
+        axiosWithAuth()
+          .post('/auth/register', creds)
+          .then(res => {
+              console.log(res.data);
+              history.push('/login');
+          })
+          .catch(err => console.error(err));
+    };
     
     return (
-        <div className="SignUp">
-        <Form>
-            <Field type="text" name="userName" placeholder="Username" />
-            {touched.userName && errors.userName && (
-            <p className="error">{errors.userName}</p>
-            )}
-            <Field type="text" name="password" placeholder="Password" />
-            {touched.password && errors.password && (
-            <p className="error">{errors.password}</p>
-            )}
-            <Field type="text" name="email" placeholder="Email" />
-            {touched.email && errors.email && (
-            <p className="error">{errors.email}</p>
-            )}
-            <button type="submit">Submit!</button>
-        </Form>
-        {animals.map(user => (
-            <ul key={user.id}>
-            <li>Username: {user.userName}</li>
-            <li>Password: {user.password}</li>
-            <li>Email: {user.email}</li>
-            </ul>
-        ))}
-        </div>
+        <FormHold>
+            <FormTitle>SignUp</FormTitle>
+            <Formy onSubmit={signup}>
+                <InputHold>
+                <label>Username:</label>
+                    <TextInput
+                        type='text'
+                        name='username'
+                        placeholder='Username...'
+                        value={creds.username}
+                        onChange={handleChange}
+                    / >
+                        
+                </InputHold>
+                <InputHold>
+                <label>Password:</label>
+                    <TextInput
+                        type='password'
+                        name='password'
+                        placeholder='Password...'
+                        value={creds.password}
+                        onChange={handleChange}
+                    / >
+                </InputHold>
+                <SubmitBtn type='submit'>Sign Up</SubmitBtn>
+            </Formy>
+        </FormHold>
     );
-    };
-    const FormikSignUpForm = withFormik({
-    mapPropsToValues({ userName, password, email }) {
-        return {
-        userName: userName || "",
-        password: password || "",
-        email: email || " ",
-        };
-    },
-    validationSchema: Yup.object().shape({
-        userName: Yup.string().required(),
-        password: Yup.string.required(),
-        email: Yup.string().required(),
-    }),
-    handleSubmit(values, {setStatus}) { 
-        axios.post('https://reqres.in/api/users/', values) 
-            .then(res => { setStatus(res.data); }) 
-            .catch(err => console.log(err.response));
-        }
-    })(SignUpForm);
-    export default FormikSignUpForm;
-    console.log("This is the HOC", FormikAnimalForm)
+};
+
+export default Signup;
+

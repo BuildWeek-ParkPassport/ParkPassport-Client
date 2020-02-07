@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -20,3 +24,31 @@
 .App-link {
   color: #09d3ac;
 }
+
+.yeet{
+  max-width: 90px;
+}
+
+.navbar{
+  /* margin: 0 3%; */
+  /* padding: 20% 0%; */
+  box-shadow: 0 3px 6px 1px rgba(80, 78, 80, 0.1);
+  margin-bottom: 3%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.park-links {
+  color: black;
+}
+
+
+
+
+
+
+
+
